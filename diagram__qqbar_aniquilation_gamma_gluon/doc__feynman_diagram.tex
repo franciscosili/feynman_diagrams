@@ -1,0 +1,28 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{feynmp-auto}
+
+\begin{document}
+\pagestyle{empty}\large
+\begin{fmffile}{feyngraph}
+    \begin{fmfgraph*}(120,90)
+        
+        % INPUTS
+        \fmfleft{i2,i1}
+        % OUTPUTS
+        \fmfright{o2,o1}
+        
+        % input fermions
+        \fmf{fermion,label=\(q\)}{i1,v1}
+        \fmf{fermion,label=\(\bar{q}\)}{v2,i2}
+        
+        % intermediate
+        \fmf{fermion}{v1,v2}
+        
+        % output
+        \fmf{photon,label=\(\gamma\)}{v2,o2}
+        \fmf{gluon,label=\(g\)}{v1,o1}
+    \end{fmfgraph*}
+\end{fmffile}
+\end{document}
