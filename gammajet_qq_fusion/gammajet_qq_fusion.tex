@@ -1,0 +1,38 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{underscore}
+\usepackage{amsmath}
+\usepackage{feynmp-auto}
+\usepackage[landscape]{geometry}
+
+\begin{document}
+\pagestyle{empty}\large
+\begin{fmffile}{feyngraph}
+    \begin{fmfgraph*}(170,60)
+        \fmfstraight
+
+        \fmfleft{i1,i2}
+        \fmfright{o1,o2}
+        
+        % gluons
+        \fmf{gluon}{i1,t1}
+        \fmf{gluon}{i2,t2}
+        \fmf{phantom,tension=0.92}{t1,t4}
+        \fmf{phantom,tension=0.92}{t2,t3}
+        % Higgs boson and gluon radiation
+        \fmf{gluon,tension=1}{t4,o1}
+        \fmf{photon,tension=1}{o2,t3}
+        % top loop
+        \fmf{fermion,tension=0}{t1,t2,t3,t4,t1}
+        % labels
+        \fmflabel{\(g\)}{i1}
+        \fmflabel{\(g\)}{i2}
+        \fmflabel{\(g\)}{o1}
+        \fmflabel{\(\gamma\)}{o2}
+        
+        % instructions https://wiki.physik.uzh.ch/cms/latex:feynman
+    \end{fmfgraph*}
+\end{fmffile}
+\end{document}

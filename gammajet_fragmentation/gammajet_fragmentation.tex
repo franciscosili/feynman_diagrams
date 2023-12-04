@@ -1,0 +1,44 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{underscore}
+\usepackage{amsmath}
+\usepackage{feynmp-auto}
+\usepackage[landscape]{geometry}
+
+\begin{document}
+\pagestyle{empty}\large
+\begin{fmffile}{feyngraph}
+    \begin{fmfgraph*}(170,90)
+
+        \fmfleft{i2,i1}
+        \fmfright{o2,o1}
+
+        \fmfblob{20}{t1}
+
+        \fmflabel{\(g\)}{i1}
+        \fmflabel{\(q\)}{i2}
+        
+        \fmflabel{\(\gamma\)}{o1}
+        \fmflabel{\(g\)}{o2}
+
+        \fmf{gluon}{i1,v1}
+        \fmf{fermion}{i2,v2}
+        
+        \fmf{fermion,label=\(q\)}{v2,v1}
+        
+        \fmf{phantom,tension=0.5}{t1,o1}
+        \fmf{phantom,tension=2.0}{t1,v1}
+        % \fmf{phantom,tension=0.1}{i1,i2}
+
+        
+        
+        \fmf{plain}{v1,t1}
+        \fmf{photon}{t1,o1}
+        \fmf{gluon}{v2,o2}
+        
+        % instructions https://wiki.physik.uzh.ch/cms/latex:feynman
+    \end{fmfgraph*}
+\end{fmffile}
+\end{document}

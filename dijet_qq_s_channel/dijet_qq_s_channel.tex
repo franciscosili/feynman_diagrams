@@ -1,0 +1,35 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{underscore}
+\usepackage{amsmath}
+\usepackage{feynmp-auto}
+\usepackage[landscape]{geometry}
+
+\begin{document}
+\pagestyle{empty}\large
+\begin{fmffile}{feyngraph}
+    \begin{fmfgraph*}(150,90)
+
+        \fmfleft{i2,i1}
+        \fmfright{o2,o1}
+
+        \fmflabel{\(q\)}{i1}
+        \fmflabel{\(\bar{q}\)}{i2}
+        
+        \fmflabel{\(q\)}{o1}
+        \fmflabel{\(\bar{q}\)}{o2}
+
+        \fmf{fermion}{i1,v1}
+        \fmf{fermion}{v1,i2}
+        
+        \fmf{gluon,label=\(g\),label.side=left}{v1,v2}
+        
+        \fmf{fermion}{v2,o1}
+        \fmf{fermion}{o2,v2}
+
+        % instructions https://wiki.physik.uzh.ch/cms/latex:feynman
+    \end{fmfgraph*}
+\end{fmffile}
+\end{document}
